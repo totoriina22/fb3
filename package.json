@@ -1,0 +1,19 @@
+{
+  "name": "facebookscrap",
+  "version": "1.0.0",
+  "description": "scrapes facebook",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-json-modules index.js",
+    "test": "node --experimental-json-modules test.js"
+  },
+  "author": "mzk",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^13.5.2"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.2"
+  }
+}
