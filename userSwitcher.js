@@ -9,7 +9,7 @@ export async function switchUser(users, page) {
     for (let index = 0; index < users.length; index++) {
 
         await page.goto('https://www.facebook.com' + users[index])
-        await page.waitForTimeout(1500)
+        await page.setDefaultNavigationTimeout(0); 
 
         const MessengerInputSelector = '[class="kvgmc6g5 oygrvhab"]'
         await page.waitForSelector(MessengerInputSelector)

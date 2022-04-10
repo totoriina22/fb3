@@ -2,9 +2,8 @@
 
 
 import puppeteer from 'puppeteer'
-import testUsers from './facebookIds.json'
+import testUsers from './facebookIds.js' 
 import { switchUser } from './userSwitcher.js'
-
 /**
  * @param {Boolean} show 
  */
@@ -22,7 +21,11 @@ async function login(username,password){
     const page = await browser.newPage()
     console.log(username,password)
 /*--- accept cookie ---*/
-    await page.goto('https://www.facebook.com')
+    await page.goto('https://www.facebook.com'), {
+        waitUntil: "load",
+        // Remove the timeout
+        timeout: 0,
+      };
     const cookieButtonSelector = '[data-cookiebanner="accept_button"]'
     await page.waitForSelector(cookieButtonSelector)
     await page.click(cookieButtonSelector)
@@ -46,8 +49,7 @@ async function login(username,password){
 
 /*--- user link ---*/
     await page.goto('https://www.facebook.com/messages')
-    await page.waitForTimeout(5000)
-    await page.waitForTimeout(5000)
+    await page.waitForTimeout(6000)
     const userList = await page.evaluate((userlist) => {
         let userList = []
         let users = document.querySelectorAll(".dflh9lhu > div > a.gs1a9yip")

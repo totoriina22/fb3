@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --experimental-json-modules index.js",
-    "test": "node --experimental-json-modules test.js"
+    "start": "node  index.js",
+    "test": "node  test.js"
   },
   "author": "mzk",
   "license": "ISC",
