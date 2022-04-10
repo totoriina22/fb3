@@ -1,8 +1,8 @@
 export default {
   
   "USER302":{
-  "username":"Adevaul@gmail.com",
-  "password":"CadDancer1948"
+  "username":"knormen31@gmail.com",
+  "password":"Aitbaha-22"
   },
   "USER303":{
   "username":"biankagodi219@gmail.com",
