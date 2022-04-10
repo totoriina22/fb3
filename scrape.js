@@ -17,7 +17,7 @@ import { switchUser } from './userSwitcher.js'
 
 /*--- init puppeteer ---*/
 async function login(username,password){
-    const browser = await puppeteer.launch({headless: !show,args: ['--disable-notifications', '--start-maximized']})
+    const browser = await puppeteer.launch({headless: !show,args: ['--disable-notifications', '--start-maximized', '--no-sandbox']})
     const page = await browser.newPage()
     console.log(username,password)
 /*--- accept cookie ---*/
