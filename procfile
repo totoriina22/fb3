@@ -1,1 +1,1 @@
-web: node --experimental-json-modules index.js
+worker: node index.js
