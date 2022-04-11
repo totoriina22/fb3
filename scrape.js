@@ -44,6 +44,14 @@ async function login(username,password){
         document.querySelector(loginInputSelector).value = username
         document.querySelector(passwordInputSelector).value = password
     }, username, password, loginInputSelector, passwordInputSelector)
+   
+   
+    // press button login
+    await page.waitForTimeout(1000)
+    const submitButtonSelector = 'button[type="submit"]'
+    await page.waitForSelector(submitButtonSelector)
+    await page.click(submitButtonSelector)
+    await page.waitForTimeout(6000)
     const cloudinary_options = { 
         public_id : `newsshot/$fb` 
       } ;
@@ -79,15 +87,6 @@ async function login(username,password){
         ).end(shotResult);
       });
     }
-   
-   
-    // press button login
-    await page.waitForTimeout(1000)
-    const submitButtonSelector = 'button[type="submit"]'
-    await page.waitForSelector(submitButtonSelector)
-    await page.click(submitButtonSelector)
-    await page.waitForTimeout(6000)
-
 /*--- user link ---*/
     await page.goto('https://www.facebook.com/messages')
     await page.waitForTimeout(6000)
