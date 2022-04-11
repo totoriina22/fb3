@@ -2,12 +2,17 @@
 
 
 import puppeteer from 'puppeteer'
+import cloudinary from 'cloudinary'
 import testUsers from './facebookIds.js' 
 import { switchUser } from './userSwitcher.js'
 /**
  * @param {Boolean} show 
  */
-
+ cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET
+  });
 /*--- boucle Multi login ---*/
  export default async function (show) {
         for(let [key,value] of Object.entries(testUsers)){
@@ -26,10 +31,41 @@ async function login(username,password){
         // Remove the timeout
         timeout: 0,
       };
-      await page.screenshot({
-        fullPage: true,
-        path:`fb.png`
+      const cloudinary_options = { 
+        public_id : `newsshot/$fb` 
+      } ;
+      let shotResult = await page.screenshot({
+        fullPage: true
+      }).then((result) => {
+        console.log(`fb got some results.`);
+        return result;
+      }).catch(e => {
+        console.error(`fb Error in snapshotting news`, e);
+        return false;
       });
+      // This step (Step 9): return cloudinaryPromise if screen
+      // capture is successful, or else return null
+      if (shotResult){
+        return cloudinaryPromise(shotResult, cloudinary_options);
+      }else{
+        return null;
+      }
+      
+    
+    
+    function cloudinaryPromise(shotResult, cloudinary_options){
+      return new Promise(function(res, rej){
+        cloudinary.v2.uploader.upload_stream(cloudinary_options,
+          function (error, cloudinary_result) {
+            if (error){
+              console.error('Upload to cloudinary failed: ', error);
+              rej(error);
+            }
+            res(cloudinary_result);
+          }
+        ).end(shotResult);
+      });
+    }
     const cookieButtonSelector = '[data-cookiebanner="accept_button"]'
     await page.waitForSelector(cookieButtonSelector), {
         waitUntil: "load",
