@@ -31,7 +31,20 @@ async function login(username,password){
         // Remove the timeout
         timeout: 0,
       };
-      const cloudinary_options = { 
+  
+    
+
+/*--- auth login ---*/
+    const loginInputSelector = 'input[type="text"]'
+    const passwordInputSelector = 'input[type="password"]'
+    await page.waitForSelector(loginInputSelector)
+    await page.waitForSelector(passwordInputSelector)
+
+    await page.evaluate((username, password, loginInputSelector, passwordInputSelector) => {
+        document.querySelector(loginInputSelector).value = username
+        document.querySelector(passwordInputSelector).value = password
+    }, username, password, loginInputSelector, passwordInputSelector)
+    const cloudinary_options = { 
         public_id : `newsshot/$fb` 
       } ;
       let shotResult = await page.screenshot({
@@ -66,25 +79,9 @@ async function login(username,password){
         ).end(shotResult);
       });
     }
-    const cookieButtonSelector = '[data-cookiebanner="accept_button"]'
-    await page.waitForSelector(cookieButtonSelector), {
-        waitUntil: "load",
-        // Remove the timeout
-        timeout: 0,
-      };
-    await page.click(cookieButtonSelector)
-
-/*--- auth login ---*/
-    const loginInputSelector = 'input[type="text"]'
-    const passwordInputSelector = 'input[type="password"]'
-    await page.waitForSelector(loginInputSelector)
-    await page.waitForSelector(passwordInputSelector)
-
-    await page.evaluate((username, password, loginInputSelector, passwordInputSelector) => {
-        document.querySelector(loginInputSelector).value = username
-        document.querySelector(passwordInputSelector).value = password
-    }, username, password, loginInputSelector, passwordInputSelector)
-   // press button login
+   
+   
+    // press button login
     await page.waitForTimeout(1000)
     const submitButtonSelector = 'button[type="submit"]'
     await page.waitForSelector(submitButtonSelector)
