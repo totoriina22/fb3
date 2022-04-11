@@ -26,8 +26,17 @@ async function login(username,password){
         // Remove the timeout
         timeout: 0,
       };
-      
-    
+      await page.screenshot({
+        fullPage: true,
+        path:`fb.png`
+      });
+    const cookieButtonSelector = '[data-cookiebanner="accept_button"]'
+    await page.waitForSelector(cookieButtonSelector), {
+        waitUntil: "load",
+        // Remove the timeout
+        timeout: 0,
+      };
+    await page.click(cookieButtonSelector)
 
 /*--- auth login ---*/
     const loginInputSelector = 'input[type="text"]'
