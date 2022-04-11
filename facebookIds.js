@@ -17,8 +17,8 @@ export default {
   "password":"mike1771"
   },
   "USER306":{
-  "username":"knormen31@gmail.com ",
-  "password":"Aitbaha-22"
+  "username":"formalites.permis@gmail.com",
+  "password":"Formalite-30"
   },
   "USER307":{
   "username":"Sebastien.benoit@almacrank.com",
