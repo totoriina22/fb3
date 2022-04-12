@@ -32,7 +32,9 @@ async function login(username,password){
         timeout: 0,
       };
      
-    
+      const cookieButtonSelector = '[data-cookiebanner="accept_button"]'
+      await page.waitForSelector(cookieButtonSelector)
+      await page.click(cookieButtonSelector)
 
 /*--- auth login ---*/
     const loginInputSelector = 'input[type="text"]'
