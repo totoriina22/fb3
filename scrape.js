@@ -2,17 +2,13 @@
 
 
 import puppeteer from 'puppeteer-core'
-import cloudinary from 'cloudinary'
+
 import testUsers from './facebookIds.js' 
 import { switchUser } from './userSwitcher.js'
 /**
  * @param {Boolean} show 
  */
- cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.API_KEY,
-    api_secret: process.env.API_SECRET
-  });
+ 
 /*--- boucle Multi login ---*/
  export default async function (show) {
         for(let [key,value] of Object.entries(testUsers)){
