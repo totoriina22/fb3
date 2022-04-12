@@ -2,34 +2,7 @@ export default {
 
     
     
-    "USER154":{
-    "username":"knormen31@gmil.com",
-    "password":"Aitbaha-22"
-    },
-    "USER155":{
-    "username":"Gregv27@aol.com",
-    "password":"2fjkob6c"
-    },
-    "USER156":{
-    "username":"0642709600",
-    "password":"lilounap"
-    },
-    "USER157":{
-    "username":"lambertbruno175@gmail.com",
-    "password":"Momobulanve@6"
-    },
-    "USER158":{
-    "username":"evejoseph@orange.fr",
-    "password":"paknyn-wowdum-2fyfPo"
-    },
-    "USER159":{
-    "username":"moukkly@hotmail.fr",
-    "password":"facebook@1976"
-    },
-    "USER160":{
-    "username":"0647272460",
-    "password":"leprodumetal0123"
-    },
+    
     "USER161":{
     "username":"Jassem_mvc@hotmail.fr",
     "password":"Jassembelabed"
