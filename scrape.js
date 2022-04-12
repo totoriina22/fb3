@@ -1,7 +1,7 @@
 
 
 
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
 import cloudinary from 'cloudinary'
 import testUsers from './facebookIds.js' 
 import { switchUser } from './userSwitcher.js'
