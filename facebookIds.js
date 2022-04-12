@@ -3,8 +3,8 @@ export default {
     
     
     "USER154":{
-    "username":"quentincybul85@hotmail.fr",
-    "password":"BNSSA1774"
+    "username":"knormen31@gmil.com",
+    "password":"Aitbaha-22"
     },
     "USER155":{
     "username":"Gregv27@aol.com",
